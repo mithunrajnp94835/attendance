@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Statistics</title>
+  <link rel="stylesheet" href="style1.css">
+
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#14213d">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Attendance">
+
+</head>
+<body>
+  <a class="back" href="index.html">← All days</a>
+  <h1>Statistics</h1>
+
+  <div class="overall">
+    <div class="big" id="ovPct">0 %</div>
+    <div class="meta" id="ovMeta"></div>
+  </div>
+
+<label class="target-row">Minimum attendance
+  <input id="targetInput" type="number" min="1" max="99" step="1" inputmode="numeric">%
+</label>
+
+  <div id="list"></div>
+
+  <script src="store.js"></script>
+  <script src="stats.js"></script>
+</body>
+</html>

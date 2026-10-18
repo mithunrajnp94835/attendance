@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attendance Tracker</title>
+  <link rel="stylesheet" href="style1.css">
+
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#14213d">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Attendance">
+
+</head>
+<body>
+  <h1>My timetable</h1>
+  <p id="backupNote" class="backup-note"></p>
+
+  <a class="day" href="day.html?day=monday">Monday</a>
+  <a class="day" href="day.html?day=tuesday">Tuesday</a>
+  <a class="day" href="day.html?day=wednesday">Wednesday</a>
+  <a class="day" href="day.html?day=thursday">Thursday</a>
+  <a class="day" href="day.html?day=friday">Friday</a>
+  <a class="day" href="day.html?day=saturday">Saturday</a>
+  <a class="day" href="day.html?day=sunday">Sunday</a>
+
+  <a class="day stats-link" href="statistics.html">Statistics</a>
+  <a class="day stats-link" href="edit.html">Edit timetable</a>
+  <a class="day stats-link" href="backup.html">Backup</a>
+
+  <script src="store.js"></script>
+  <script>
+    // highlight today
+    const names = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+    const today = names[new Date().getDay()];
+    const link = document.querySelector('a[href$="day=' + today + '"]');
+    if (link) link.classList.add("today");
+
+    // backup reminder
+    const age = backupAge();
+    const noteEl = document.getElementById("backupNote");
+    if (age === null) {
+      noteEl.textContent = "No backup yet. Open Backup and make one.";
+      noteEl.classList.add("bad");
+    } else if (age > 7) {
+      noteEl.textContent = "Your last backup was " + age + " days ago.";
+      noteEl.classList.add("bad");
+    }
+  </script>
+</body>
+</html>

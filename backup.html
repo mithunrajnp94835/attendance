@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Backup</title>
+  <link rel="stylesheet" href="style1.css">
+
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#14213d">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Attendance">
+
+</head>
+<body>
+  <a class="back" href="index.html">← All days</a>
+  <h1>Backup</h1>
+  <p id="status" class="backup-status"></p>
+
+  <div class="subject">
+    <div class="title">Save a backup</div>
+    <p class="hint">Saves your attendance, timetable and notes as one file. Keep a copy outside your phone, like Google Drive.</p>
+    <button id="exportBtn" class="wide">Export backup file</button>
+    <button id="copyBtn" class="wide soft">Copy backup as text</button>
+    <p id="result" class="backup-status"></p>
+  </div>
+
+  <div class="subject">
+    <div class="title">Restore a backup</div>
+    <p class="hint">This replaces everything currently in the app.</p>
+    <button id="importBtn" class="wide">Choose backup file</button>
+    <input type="file" id="fileInput" hidden>
+    <textarea id="pasteBox" placeholder="Or paste the backup text here"></textarea>
+    <button id="pasteBtn" class="wide soft">Restore from pasted text</button>
+  </div>
+
+  <script src="store.js"></script>
+  <script src="backup.js"></script>
+</body>
+</html>
