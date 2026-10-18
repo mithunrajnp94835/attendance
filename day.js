@@ -147,7 +147,7 @@ function fillSelect() {
 
   const first = document.createElement("option");
   first.value = "";
-  first.textContent = "+ Add a class to this day…";
+  first.textContent = allSubjects().length ? "+ Add a class to this day…" : "No subjects yet. Create them on the Edit page.";
   subjectSelect.appendChild(first);
 
   allSubjects().forEach(function (n) {
