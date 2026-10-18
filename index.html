@@ -31,6 +31,12 @@
   <a class="day stats-link" href="edit.html">Edit timetable</a>
   <a class="day stats-link" href="backup.html">Backup</a>
 
+  <div id="welcome" class="subject" hidden>
+  <div class="title">Welcome</div>
+  <p class="hint">Your timetable is empty. Set it up once: create your subjects, then add them to each day in order.</p>
+  <a class="day stats-link" href="edit.html">Set up my timetable</a>
+</div>
+
   <script src="store.js"></script>
   <script>
     // highlight today
@@ -39,15 +45,20 @@
     const link = document.querySelector('a[href$="day=' + today + '"]');
     if (link) link.classList.add("today");
 
-    // backup reminder
-    const age = backupAge();
     const noteEl = document.getElementById("backupNote");
-    if (age === null) {
-      noteEl.textContent = "No backup yet. Open Backup and make one.";
-      noteEl.classList.add("bad");
-    } else if (age > 7) {
-      noteEl.textContent = "Your last backup was " + age + " days ago.";
-      noteEl.classList.add("bad");
+
+    if (namesInTimetable().length === 0) {
+      // first run: show the welcome box, skip the backup reminder
+      document.getElementById("welcome").hidden = false;
+    } else {
+      const age = backupAge();
+      if (age === null) {
+        noteEl.textContent = "No backup yet. Open Backup and make one.";
+        noteEl.classList.add("bad");
+      } else if (age > 7) {
+        noteEl.textContent = "Your last backup was " + age + " days ago.";
+        noteEl.classList.add("bad");
+      }
     }
   </script>
 </body>
