@@ -3,13 +3,8 @@ const JS_DAY = { sunday:0, monday:1, tuesday:2, wednesday:3, thursday:4, friday:
 
 // PUT YOUR OWN TIMETABLE HERE (only used the first time, before anything is saved)
 const defaultTimetable = {
-  monday:    ["DBMS", "Maths", "OS"],
-  tuesday:   ["OS", "DSA", "DBMS Lab"],
-  wednesday: ["Maths", "DBMS", "DSA"],
-  thursday:  ["DSA", "OS", "Maths"],
-  friday:    ["DBMS", "DSA", "OS Lab"],
-  saturday:  ["Maths", "DBMS"],
-  sunday:    []
+  monday: [], tuesday: [], wednesday: [], thursday: [],
+  friday: [], saturday: [], sunday: []
 };
 
 function load(key, fallback) {
