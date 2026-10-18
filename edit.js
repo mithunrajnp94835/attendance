@@ -4,6 +4,7 @@ const subjectSelect = document.getElementById("subjectSelect");
 const newSubject = document.getElementById("newSubject");
 const addSubjectBtn = document.getElementById("addSubjectBtn");
 const subjectList = document.getElementById("subjectList");
+const firstRun = document.getElementById("firstRun");
 
 let day = "monday";
 
@@ -82,14 +83,17 @@ function renderDay() {
 }
 
 function fillSelect() {
+  const names = allSubjects();
+  firstRun.hidden = names.length > 0;
+
   subjectSelect.innerHTML = "";
 
   const first = document.createElement("option");
   first.value = "";
-  first.textContent = "+ Add a class to this day…";
+  first.textContent = names.length ? "+ Add a class to this day…" : "Create a subject first (below)";
   subjectSelect.appendChild(first);
 
-  allSubjects().forEach(function (n) {
+  names.forEach(function (n) {
     const o = document.createElement("option");
     o.value = n;
     o.textContent = n;
